@@ -5,15 +5,13 @@ namespace App\Lib\SxGeo;
 class SypexGeo
 {
     private SxGeo $sypex;
-    protected array $config;
     public string $ip = '';
     public int $ipAsLong = 0;
     public array $city = [];
     public array $region = [];
     public array $country = [];
 
-    public function __construct(SxGeo $object, array $config) {
-        $this->config = $config;
+    public function __construct(SxGeo $object) {
         $this->sypex = $object;
     }
 
@@ -38,7 +36,7 @@ class SypexGeo
         if (isset($data['country'])) {
             $this->country = $data['country'];
         }
-        return empty($data) ? ($this->config['default_location'] ?? []) : $data;
+        return $data ?? [];
     }
 
     public function getIP()

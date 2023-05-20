@@ -4,10 +4,11 @@ namespace App\Lib\SxGeo;
 
 class SypexGeoFactory
 {
+    private const PATH_TO_DB = __DIR__ . "/SxGeoCity.dat";
     public static function createSypexGeo(): SypexGeo
     {
-        $config = require __DIR__ . '/../../../config/sypexgeo.php';
-        $sxGeo = new SxGeo(__DIR__ . "/{$config['sypexgeo']['file']}");
-        return new SypexGeo($sxGeo, $config);
+
+        $sxGeo = new SxGeo(self::PATH_TO_DB);
+        return new SypexGeo($sxGeo);
     }
 }
