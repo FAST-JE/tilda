@@ -8,24 +8,24 @@ class GeoLocation
     private string $country;
     private string $region;
 
-    public function __construct($country, $region, $city)
+    public function __construct(string $country, string $region, string $city)
     {
         $this->country = $country;
         $this->region = $region;
         $this->city = $city;
     }
 
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->country;
     }
 
-    public function getRegion()
+    public function getRegion(): string
     {
         return $this->region;
     }

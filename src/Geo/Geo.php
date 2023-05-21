@@ -8,6 +8,10 @@ use App\Geo\Lib\SxGeo;
 
 class Geo
 {
+    private const COUNTRY_DEFAULT = 'Россия';
+    private const CITY_DEFAULT = 'Москва';
+    private const REGION_DEFAULT = 'Московская область';
+
     private SxGeo $sypex;
 
     public function __construct(SxGeo $object) {
@@ -21,8 +25,11 @@ class Geo
         }
 
         $data = $this->sypex->getCityFull($ip);
-        if (empty($data)) {
-            throw new NotFoundGeoException('it is impossible to determine the location');
+
+        if (!isset($data['country']['name_ru'], $data['region']['name_ru'], $data['city']['name_ru'])) {
+            $data['country']['name_ru'] = self::COUNTRY_DEFAULT;
+            $data['region']['name_ru'] = self::REGION_DEFAULT;
+            $data['city']['name_ru'] = self::CITY_DEFAULT;
         }
 
         return new GeoLocation($data['country']['name_ru'], $data['region']['name_ru'], $data['city']['name_ru']);
