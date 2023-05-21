@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib\SxGeo;
+namespace App\Geo;
 
 class GeoLocation
 {

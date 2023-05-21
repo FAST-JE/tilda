@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib\SxGeo;
+namespace App\Geo\Lib;
 
 /***************************************************************************\
 | Sypex Geo                  version 2.2.3                                  |
