@@ -10,9 +10,9 @@ class GeoLocation
 
     public function __construct(array $ipInfo)
     {
-        $this->city = $ipInfo['city'] ?? '';
-        $this->country = $ipInfo['country'] ?? '';
-        $this->region = $ipInfo['region'] ?? '';
+        $this->city = $ipInfo['city'] ?? [];
+        $this->country = $ipInfo['country'] ?? [];
+        $this->region = $ipInfo['region'] ?? [];
     }
 
     public function getCity()
