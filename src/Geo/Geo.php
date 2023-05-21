@@ -25,7 +25,7 @@ class Geo
             throw new NotFoundGeoException('it is impossible to determine the location');
         }
 
-        return new GeoLocation($data);
+        return new GeoLocation($data['country']['name_ru'], $data['region']['name_ru'], $data['city']['name_ru']);
     }
 
 }
