@@ -4,9 +4,10 @@ namespace App\Geo;
 
 class GeoLocation
 {
-    private string $city;
+
     private string $country;
     private string $region;
+    private string $city;
 
     public function __construct(string $country, string $region, string $city)
     {

@@ -27,9 +27,7 @@ class Geo
         $data = $this->sypex->getCityFull($ip);
 
         if (!isset($data['country']['name_ru'], $data['region']['name_ru'], $data['city']['name_ru'])) {
-            $data['country']['name_ru'] = self::COUNTRY_DEFAULT;
-            $data['region']['name_ru'] = self::REGION_DEFAULT;
-            $data['city']['name_ru'] = self::CITY_DEFAULT;
+            return new GeoLocation(self::COUNTRY_DEFAULT, self::COUNTRY_DEFAULT, self::CITY_DEFAULT);
         }
 
         return new GeoLocation($data['country']['name_ru'], $data['region']['name_ru'], $data['city']['name_ru']);
